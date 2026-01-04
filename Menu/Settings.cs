@@ -30,11 +30,11 @@ namespace Fate
          *   Font.CreateDynamicFontFromOSFont("Comic Sans MS", 24)
          */
 
-        public static ExtGradient backgroundColor = new ExtGradient { rainbow = true};
+        public static ExtGradient backgroundColor = new ExtGradient { colors = ExtGradient.GetSimpleGradient(new Color32(0, 0, 0, 255), new Color32(155, 5, 5, 255)) };
         public static ExtGradient[] buttonColors = new ExtGradient[]
         {
-            new ExtGradient { colors = ExtGradient.GetSolidGradient(Color.black) }, // Disabled
-            new ExtGradient { rainbow = true } // Enabled
+            new ExtGradient { colors = ExtGradient.GetSolidGradient(new Color32(0, 0, 0, 255)) }, // Disabled
+            new ExtGradient { colors = ExtGradient.GetSolidGradient(new Color32(155, 5, 5, 255)) } // Enabled
         };
         public static Color[] textColors = new Color[]
         {

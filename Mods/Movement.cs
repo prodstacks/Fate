@@ -34,7 +34,7 @@ namespace Fate.Mods
                     FixStickyColliders(platl);
 
                     ColorChanger colorChanger = platl.AddComponent<ColorChanger>();
-                    colorChanger.colors = StupidTemplate.Settings.backgroundColor;
+                    colorChanger.colors = Fate.Settings.backgroundColor;
                 }
                 else
                 {
@@ -58,7 +58,7 @@ namespace Fate.Mods
                     FixStickyColliders(platr);
 
                     ColorChanger colorChanger = platr.AddComponent<ColorChanger>();
-                    colorChanger.colors = StupidTemplate.Settings.backgroundColor;
+                    colorChanger.colors = Fate.Settings.backgroundColor;
                 }
                 else
                 {

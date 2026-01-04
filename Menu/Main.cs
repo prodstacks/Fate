@@ -125,7 +125,8 @@ namespace Fate.Menu
 
                 ColorChanger colorChanger = menuBackground.AddComponent<ColorChanger>();
                 colorChanger.colors = backgroundColor;
-
+                RoundObj(menu);
+                RoundObj(menuBackground);
             // Canvas
                 canvasObject = new GameObject();
                 canvasObject.transform.parent = menu.transform;
@@ -144,17 +145,17 @@ namespace Fate.Menu
                     }
                 }.AddComponent<Text>();
                 text.font = currentFont;
-                text.text = PluginInfo.Name + " <color=grey>[</color><color=white>" + (pageNumber + 1).ToString() + "</color><color=grey>]</color>";
+                text.text = PluginInfo.Name;
                 text.fontSize = 1;
                 text.color = textColors[0];
                 text.supportRichText = true;
-                text.fontStyle = FontStyle.Italic;
+                text.fontStyle = FontStyle.BoldAndItalic;
                 text.alignment = TextAnchor.MiddleCenter;
                 text.resizeTextForBestFit = true;
                 text.resizeTextMinSize = 0;
                 RectTransform component = text.GetComponent<RectTransform>();
                 component.localPosition = Vector3.zero;
-                component.sizeDelta = new Vector2(0.28f, 0.05f);
+                component.sizeDelta = new Vector2(0.14f, 0.04f);
                 component.position = new Vector3(0.06f, 0f, 0.165f);
                 component.rotation = Quaternion.Euler(new Vector3(180f, 90f, 90f));
 
@@ -179,8 +180,8 @@ namespace Fate.Menu
                     fpsObject.resizeTextMinSize = 0;
                     RectTransform component2 = fpsObject.GetComponent<RectTransform>();
                     component2.localPosition = Vector3.zero;
-                    component2.sizeDelta = new Vector2(0.28f, 0.02f);
-                    component2.position = new Vector3(0.06f, 0f, 0.135f);
+                    component2.sizeDelta = new Vector2(0.09f, 0.016f);
+                    component2.position = new Vector3(0.06f, -0.105f, -0.175f);
                     component2.rotation = Quaternion.Euler(new Vector3(180f, 90f, 90f));
                 }
 
@@ -189,7 +190,7 @@ namespace Fate.Menu
                     if (disconnectButton)
                     {
                         GameObject disconnectbutton = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                        if (!UnityInput.Current.GetKey(keyboardButton))
+                if (!UnityInput.Current.GetKey(keyboardButton))
                             disconnectbutton.layer = 2;
                         Destroy(disconnectbutton.GetComponent<Rigidbody>());
                         disconnectbutton.GetComponent<BoxCollider>().isTrigger = true;
@@ -202,6 +203,7 @@ namespace Fate.Menu
 
                         colorChanger = disconnectbutton.AddComponent<ColorChanger>();
                         colorChanger.colors = buttonColors[0];
+                        RoundObj(disconnectbutton);
 
                         Text discontext = new GameObject
                         {
@@ -215,12 +217,13 @@ namespace Fate.Menu
                         discontext.fontSize = 1;
                         discontext.color = textColors[0];
                         discontext.alignment = TextAnchor.MiddleCenter;
+                        discontext.fontStyle = FontStyle.Bold;
                         discontext.resizeTextForBestFit = true;
                         discontext.resizeTextMinSize = 0;
 
                         RectTransform rectt = discontext.GetComponent<RectTransform>();
                         rectt.localPosition = Vector3.zero;
-                        rectt.sizeDelta = new Vector2(0.2f, 0.03f);
+                        rectt.sizeDelta = new Vector2(0.13f, 0.03f);
                         rectt.localPosition = new Vector3(0.064f, 0f, 0.23f);
                         rectt.rotation = Quaternion.Euler(new Vector3(180f, 90f, 90f));
                     }
@@ -240,6 +243,7 @@ namespace Fate.Menu
 
                     colorChanger = gameObject.AddComponent<ColorChanger>();
                     colorChanger.colors = buttonColors[0];
+                    RoundObj(gameObject);
 
                     text = new GameObject
                     {
@@ -253,7 +257,8 @@ namespace Fate.Menu
                     text.fontSize = 1;
                     text.color = textColors[0];
                     text.alignment = TextAnchor.MiddleCenter;
-                    text.resizeTextForBestFit = true;
+                    text.fontStyle = FontStyle.Bold;
+            text.resizeTextForBestFit = true;
                     text.resizeTextMinSize = 0;
                     component = text.GetComponent<RectTransform>();
                     component.localPosition = Vector3.zero;
@@ -277,6 +282,7 @@ namespace Fate.Menu
 
                     colorChanger = gameObject.AddComponent<ColorChanger>();
                     colorChanger.colors = buttonColors[0];
+                    RoundObj(gameObject);
 
                     text = new GameObject
                     {
@@ -290,7 +296,8 @@ namespace Fate.Menu
                     text.fontSize = 1;
                     text.color = textColors[0];
                     text.alignment = TextAnchor.MiddleCenter;
-                    text.resizeTextForBestFit = true;
+                    text.fontStyle = FontStyle.Bold;
+            text.resizeTextForBestFit = true;
                     text.resizeTextMinSize = 0;
                     component = text.GetComponent<RectTransform>();
                     component.localPosition = Vector3.zero;
@@ -320,6 +327,7 @@ namespace Fate.Menu
 
             ColorChanger colorChanger = gameObject.AddComponent<ColorChanger>();
             colorChanger.colors = method.enabled ? buttonColors[1] : buttonColors[0];
+            RoundObj(gameObject);
 
             Text text = new GameObject
             {
@@ -343,7 +351,7 @@ namespace Fate.Menu
             text.resizeTextMinSize = 0;
             RectTransform component = text.GetComponent<RectTransform>();
             component.localPosition = Vector3.zero;
-            component.sizeDelta = new Vector2(.2f, .03f);
+            component.sizeDelta = new Vector2(.14f, .024f);
             component.localPosition = new Vector3(.064f, 0, .111f - offset / 2.6f);
             component.rotation = Quaternion.Euler(new Vector3(180f, 90f, 90f));
         }
@@ -394,8 +402,7 @@ namespace Fate.Menu
                     GameObject bg = GameObject.CreatePrimitive(PrimitiveType.Cube);
                     bg.transform.localScale = new Vector3(10f, 10f, 0.01f);
                     bg.transform.transform.position = TPC.transform.position + TPC.transform.forward;
-                    Color realcolor = backgroundColor.GetCurrentColor();
-                    bg.GetComponent<Renderer>().material.color = new Color32((byte)(realcolor.r * 50), (byte)(realcolor.g * 50), (byte)(realcolor.b * 50), 255);
+                    bg.GetComponent<Renderer>().material.color = new Color32(10, 10, 10, 1);
                     Destroy(bg, 0.05f);
                     menu.transform.parent = TPC.transform;
                     menu.transform.position = TPC.transform.position + (TPC.transform.forward * 0.5f) + (TPC.transform.up * -0.02f);
@@ -526,6 +533,157 @@ namespace Fate.Menu
             }
 
             return null;
+        }
+
+        public static void RoundObj(GameObject toRound, float Bevel = 0.04f)
+        {
+            if (toRound.transform.parent != menu?.transform)
+            {
+                RoundObjNonMenu(toRound, Bevel);
+                return;
+            }
+
+            Renderer ToRoundRenderer = toRound.GetComponent<Renderer>();
+            GameObject BaseA = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            BaseA.GetComponent<Renderer>().enabled = ToRoundRenderer.enabled;
+            Destroy(BaseA.GetComponent<Collider>());
+
+            BaseA.transform.parent = menu.transform;
+            BaseA.transform.rotation = Quaternion.identity;
+            BaseA.transform.localPosition = toRound.transform.localPosition;
+            BaseA.transform.localScale = toRound.transform.localScale + new Vector3(0f, Bevel * -2.55f, 0f);
+
+            GameObject BaseB = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            BaseB.GetComponent<Renderer>().enabled = ToRoundRenderer.enabled;
+            Destroy(BaseB.GetComponent<Collider>());
+
+            BaseB.transform.parent = menu.transform;
+            BaseB.transform.rotation = Quaternion.identity;
+            BaseB.transform.localPosition = toRound.transform.localPosition;
+            BaseB.transform.localScale = toRound.transform.localScale + new Vector3(0f, 0f, -Bevel * 2f);
+
+            GameObject RoundCornerA = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+            RoundCornerA.GetComponent<Renderer>().enabled = ToRoundRenderer.enabled;
+            Destroy(RoundCornerA.GetComponent<Collider>());
+
+            RoundCornerA.transform.parent = menu.transform;
+            RoundCornerA.transform.rotation = Quaternion.identity * Quaternion.Euler(0f, 0f, 90f);
+
+            RoundCornerA.transform.localPosition = toRound.transform.localPosition + new Vector3(0f, toRound.transform.localScale.y / 2f - Bevel * 1.275f, toRound.transform.localScale.z / 2f - Bevel);
+            RoundCornerA.transform.localScale = new Vector3(Bevel * 2.55f, toRound.transform.localScale.x / 2f, Bevel * 2f);
+
+            GameObject RoundCornerB = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+            RoundCornerB.GetComponent<Renderer>().enabled = ToRoundRenderer.enabled;
+            Destroy(RoundCornerB.GetComponent<Collider>());
+
+            RoundCornerB.transform.parent = menu.transform;
+            RoundCornerB.transform.rotation = Quaternion.identity * Quaternion.Euler(0f, 0f, 90f);
+
+            RoundCornerB.transform.localPosition = toRound.transform.localPosition + new Vector3(0f, -(toRound.transform.localScale.y / 2f) + Bevel * 1.275f, toRound.transform.localScale.z / 2f - Bevel);
+            RoundCornerB.transform.localScale = new Vector3(Bevel * 2.55f, toRound.transform.localScale.x / 2f, Bevel * 2f);
+
+            GameObject RoundCornerC = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+            RoundCornerC.GetComponent<Renderer>().enabled = ToRoundRenderer.enabled;
+            Destroy(RoundCornerC.GetComponent<Collider>());
+
+            RoundCornerC.transform.parent = menu.transform;
+            RoundCornerC.transform.rotation = Quaternion.identity * Quaternion.Euler(0f, 0f, 90f);
+
+            RoundCornerC.transform.localPosition = toRound.transform.localPosition + new Vector3(0f, toRound.transform.localScale.y / 2f - Bevel * 1.275f, -(toRound.transform.localScale.z / 2f) + Bevel);
+            RoundCornerC.transform.localScale = new Vector3(Bevel * 2.55f, toRound.transform.localScale.x / 2f, Bevel * 2f);
+
+            GameObject RoundCornerD = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+            RoundCornerD.GetComponent<Renderer>().enabled = ToRoundRenderer.enabled;
+            Destroy(RoundCornerD.GetComponent<Collider>());
+
+            RoundCornerD.transform.parent = menu.transform;
+            RoundCornerD.transform.rotation = Quaternion.identity * Quaternion.Euler(0f, 0f, 90f);
+
+            RoundCornerD.transform.localPosition = toRound.transform.localPosition + new Vector3(0f, -(toRound.transform.localScale.y / 2f) + Bevel * 1.275f, -(toRound.transform.localScale.z / 2f) + Bevel);
+            RoundCornerD.transform.localScale = new Vector3(Bevel * 2.55f, toRound.transform.localScale.x / 2f, Bevel * 2f);
+
+            GameObject[] ToChange = {
+        BaseA,
+        BaseB,
+        RoundCornerA,
+        RoundCornerB,
+        RoundCornerC,
+        RoundCornerD
+    };
+
+            foreach (GameObject Changed in ToChange)
+            {
+                ClampColor TargetChanger = Changed.AddComponent<ClampColor>();
+                TargetChanger.targetRenderer = ToRoundRenderer;
+            }
+
+            ToRoundRenderer.enabled = false;
+
+            ColorChanger colorChanger = ToRoundRenderer.GetComponent<ColorChanger>();
+            if (colorChanger)
+                colorChanger.overrideTransparency = false;
+        }
+
+        public static void RoundObjNonMenu(GameObject toRound, float bevel = 0.04f)
+        {
+            static GameObject CreatePrimitive(PrimitiveType type, Transform parent, bool rendererEnabled)
+            {
+                GameObject obj = GameObject.CreatePrimitive(type);
+                obj.GetComponent<Renderer>().enabled = rendererEnabled;
+
+                Collider collider = obj.GetComponent<Collider>();
+                if (collider != null)
+                    Destroy(collider);
+
+                obj.transform.SetParent(parent, false);
+                return obj;
+            }
+
+            Renderer renderer = toRound.GetComponent<Renderer>();
+            if (renderer == null) return;
+
+            Transform parent = toRound.transform;
+            Vector3 scale = parent.localScale;
+            bool rendererEnabled = renderer.enabled;
+
+            GameObject baseA = CreatePrimitive(PrimitiveType.Cube, parent, rendererEnabled);
+            baseA.transform.localPosition = Vector3.zero;
+            baseA.transform.localRotation = Quaternion.identity;
+            baseA.transform.localScale = new Vector3(scale.x, scale.y - bevel * 2f, scale.z);
+
+            GameObject baseB = CreatePrimitive(PrimitiveType.Cube, parent, rendererEnabled);
+            baseB.transform.localPosition = Vector3.zero;
+            baseB.transform.localRotation = Quaternion.identity;
+            baseB.transform.localScale = new Vector3(scale.x, scale.y, scale.z - bevel * 2f);
+
+            GameObject[] corners = new GameObject[4];
+            Vector3[] cornerOffsets = {
+        new Vector3(0f, scale.y / 2f - bevel, scale.z / 2f - bevel),
+        new Vector3(0f, -scale.y / 2f + bevel, scale.z / 2f - bevel),
+        new Vector3(0f, scale.y / 2f - bevel, -scale.z / 2f + bevel),
+        new Vector3(0f, -scale.y / 2f + bevel, -scale.z / 2f + bevel)
+    };
+
+            for (int i = 0; i < 4; i++)
+            {
+                corners[i] = CreatePrimitive(PrimitiveType.Cylinder, parent, rendererEnabled);
+                corners[i].transform.localPosition = cornerOffsets[i];
+                corners[i].transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+                corners[i].transform.localScale = new Vector3(bevel * 2f, scale.x / 2f, bevel * 2f);
+            }
+
+            GameObject[] allObjects = { baseA, baseB, corners[0], corners[1], corners[2], corners[3] };
+            foreach (GameObject obj in allObjects)
+            {
+                ClampColor clampColor = obj.AddComponent<ClampColor>();
+                clampColor.targetRenderer = renderer;
+            }
+
+            renderer.enabled = false;
+
+            ColorChanger colorChanger = renderer.GetComponent<ColorChanger>();
+            if (colorChanger != null)
+                colorChanger.overrideTransparency = false;
         }
 
         public static Vector3 RandomVector3(float range = 1f) =>

@@ -24,9 +24,9 @@ namespace Fate.Menu
             new ButtonInfo[] { // Main Mods [0]
                 new ButtonInfo { buttonText = "Settings", method =() => currentCategory = 1, isTogglable = false, toolTip = "Opens the main settings page for the menu."},
 
-                new ButtonInfo { buttonText = "Room Mods", method =() => currentCategory = 4, isTogglable = false, toolTip = "Opens the room mods tab."},
-                new ButtonInfo { buttonText = "Movement Mods", method =() => currentCategory = 5, isTogglable = false, toolTip = "Opens the movement mods tab."},
-                new ButtonInfo { buttonText = "Safety Mods", method =() => currentCategory = 6, isTogglable = false, toolTip = "Opens the safety mods tab."},
+                new ButtonInfo { buttonText = "Room", method =() => currentCategory = 4, isTogglable = false, toolTip = "Opens the room mods tab."},
+                new ButtonInfo { buttonText = "Movement", method =() => currentCategory = 5, isTogglable = false, toolTip = "Opens the movement mods tab."},
+                new ButtonInfo { buttonText = "Safety", method =() => currentCategory = 6, isTogglable = false, toolTip = "Opens the safety mods tab."},
             },
 
             new ButtonInfo[] { // Settings [1]

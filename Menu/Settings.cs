@@ -30,11 +30,18 @@ namespace Fate
          *   Font.CreateDynamicFontFromOSFont("Comic Sans MS", 24)
          */
 
-        public static ExtGradient backgroundColor = new ExtGradient { colors = ExtGradient.GetSimpleGradient(new Color32(0, 0, 0, 255), new Color32(155, 5, 5, 255)) };
+        private static Color32 outlinecolor1 = new Color32(255, 5, 5, 1);
+        private static Color32 outlinecolor2 = new Color32(55, 5, 5, 1);
+        private static Color32 bgcolor = new Color32(15, 15, 15, 1);
+        private static Color32 dbuttoncolor = new Color32(45, 45, 45, 1);
+        private static Color32 ebuttoncolor = new Color32(15, 15, 15, 1);
+
+        public static ExtGradient backgroundColor = new ExtGradient { colors = ExtGradient.GetSolidGradient(bgcolor) };
+        public static ExtGradient outlineColor = new ExtGradient { colors = ExtGradient.GetSimpleGradient(outlinecolor1, outlinecolor2) };
         public static ExtGradient[] buttonColors = new ExtGradient[]
         {
-            new ExtGradient { colors = ExtGradient.GetSolidGradient(new Color32(0, 0, 0, 255)) }, // Disabled
-            new ExtGradient { colors = ExtGradient.GetSolidGradient(new Color32(155, 5, 5, 255)) } // Enabled
+            new ExtGradient { colors = ExtGradient.GetSolidGradient(dbuttoncolor) }, // Disabled
+            new ExtGradient { colors = ExtGradient.GetSolidGradient(ebuttoncolor) } // Enabled
         };
         public static Color[] textColors = new Color[]
         {
@@ -52,7 +59,7 @@ namespace Fate
         public static KeyCode keyboardButton = KeyCode.Q;
 
         public static Vector3 menuSize = new Vector3(0.1f, 1f, 1f); // Depth, width, height
-        public static int buttonsPerPage = 8;
+        public static int buttonsPerPage = 7;
 
         public static float gradientSpeed = 0.5f; // Speed of colors
     }

@@ -1,4 +1,10 @@
+using System.Collections.Generic;
+using System.IO;
+using System.Net;
+using System.Reflection;
+using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Networking;
 using static Fate.Menu.Main;
 using static Fate.Settings;
 
@@ -6,7 +12,7 @@ namespace Fate.Classes
 {
 	public class Button : MonoBehaviour
 	{
-		public string relatedText;
+        public string relatedText;
 
 		public static float buttonCooldown = 0f;
 		
@@ -15,9 +21,8 @@ namespace Fate.Classes
 			if (Time.time > buttonCooldown && collider == buttonCollider && menu != null)
 			{
                 buttonCooldown = Time.time + 0.2f;
-                GorillaTagger.Instance.StartVibration(rightHanded, GorillaTagger.Instance.tagHapticStrength / 2f, GorillaTagger.Instance.tagHapticDuration / 2f);
-                VRRig.LocalRig.PlayHandTapLocal(66, rightHanded, 5f);
-				Toggle(this.relatedText);
+				PlayButtonSound();
+                Toggle(this.relatedText);
             }
 		}
 	}

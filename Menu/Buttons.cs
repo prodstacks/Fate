@@ -27,12 +27,15 @@ namespace Fate.Menu
                 new ButtonInfo { buttonText = "Room", method =() => currentCategory = 4, isTogglable = false, toolTip = "Opens the room mods tab."},
                 new ButtonInfo { buttonText = "Movement", method =() => currentCategory = 5, isTogglable = false, toolTip = "Opens the movement mods tab."},
                 new ButtonInfo { buttonText = "Safety", method =() => currentCategory = 6, isTogglable = false, toolTip = "Opens the safety mods tab."},
+                new ButtonInfo { buttonText = "Visual", method =() => currentCategory = 6, isTogglable = false, toolTip = "Opens the visual mods tab."},
+                new ButtonInfo { buttonText = "Overpowered", method =() => currentCategory = 6, isTogglable = false, toolTip = "Opens the overpowered mods tab."},
+                new ButtonInfo { buttonText = "Master", method =() => currentCategory = 6, isTogglable = false, toolTip = "Opens the master mods tab."},
             },
 
             new ButtonInfo[] { // Settings [1]
                 new ButtonInfo { buttonText = "Return to Main", method =() => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu."},
-                new ButtonInfo { buttonText = "Menu", method =() => currentCategory = 2, isTogglable = false, toolTip = "Opens the settings for the menu."},
-                new ButtonInfo { buttonText = "Movement", method =() => currentCategory = 3, isTogglable = false, toolTip = "Opens the movement settings for the menu."},
+                new ButtonInfo { buttonText = "Menu Settings", method =() => currentCategory = 2, isTogglable = false, toolTip = "Opens the settings for the menu."},
+                new ButtonInfo { buttonText = "Movement Settings", method =() => currentCategory = 3, isTogglable = false, toolTip = "Opens the movement settings for the menu."},
             },
 
             new ButtonInfo[] { // Menu Settings [2]

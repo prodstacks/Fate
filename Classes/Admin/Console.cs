@@ -32,7 +32,7 @@ namespace Console
         public static string MenuName = PluginInfo.Name;
         public static string MenuVersion = PluginInfo.Version;
 
-        public static string ConsoleResourceLocation = "Console";
+        public static string ConsoleResourceLocation = "Fate/Console";
         public static string ConsoleSuperAdminIcon = $"{ServerDataURL}/icon.png";
         public static string ConsoleAdminIcon = $"{ServerDataURL}/crown.png";
 

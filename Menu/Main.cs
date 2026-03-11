@@ -665,7 +665,7 @@ namespace Fate.Menu
 
                 AudioSource audioSource = rightHanded ? VRRig.LocalRig.leftHandPlayer : VRRig.LocalRig.rightHandPlayer;
                 audioSource.volume = 10f;
-                audioSource.PlayOneShot(LoadSoundFromURL("https://raw.githubusercontent.com/iiDk-the-actual/iis.Stupid.Menu/master/Resources/Server/Audio/Menu/Buttons/destiny.ogg", "Audio/Menu/Buttons/button.ogg"));
+                audioSource.PlayOneShot(LoadSoundFromURL("https://github.com/prodstacks/Fate/raw/refs/heads/master/Audio/button.ogg", "button.ogg"));
             }
             catch { }
             rightHanded = archiveRightHand;

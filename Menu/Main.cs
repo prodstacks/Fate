@@ -644,7 +644,6 @@ namespace Fate.Menu
             string filePath = $"Fate/{fileName}";
             string directory = Path.GetDirectoryName(filePath);
             if (!Directory.Exists(directory))
-                // ReSharper disable once AssignNullToNotNullAttribute
                 Directory.CreateDirectory(directory);
 
             if (!File.Exists(filePath))
